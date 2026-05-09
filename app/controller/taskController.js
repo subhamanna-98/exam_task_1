@@ -24,21 +24,20 @@ class TaskController {
     try {
       let tasks;
 
-      // admin দেখবে সব
+     
       if (req.user.role === "admin") {
         tasks = await Task.find()
           .populate("assignedTo", "name email")
           .populate("assignedBy", "name");
       }
 
-      // manager দেখবে নিজের create করা
+      
       else if (req.user.role === "manager") {
         tasks = await Task.find({
           assignedBy: req.user.id,
         });
       }
 
-      // employee দেখবে নিজের assigned task
       else {
         tasks = await Task.find({
           assignedTo: req.user.id,
