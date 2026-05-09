@@ -1,0 +1,348 @@
+{
+  "info": {
+    "_postman_id": "854bac01-0314-4ad6-884d-20226c9cf59e",
+    "name": "Exam_Task_2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53357715",
+    "_collection_link": "https://go.postman.co/collection/53357715-854bac01-0314-4ad6-884d-20226c9cf59e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "http://localhost:5000/register",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Admin\",\r\n  \"email\": \"admin12@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"admin\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5000/login",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"email\": \"admin12@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5000/api/get",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1NWQ3YjZhOWY1OTM5NThmYzYxNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODM0MTM3NCwiZXhwIjoxNzc4OTQ2MTc0fQ.0YnI8NxCLLnnvJQLrVA5zyhDb03Ytk1zzp7sS6mPIgo",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/get",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "get"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5000/api/get/69ff06678ccd0d37ff25085d",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1NWQ3YjZhOWY1OTM5NThmYzYxNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODM0MTM3NCwiZXhwIjoxNzc4OTQ2MTc0fQ.0YnI8NxCLLnnvJQLrVA5zyhDb03Ytk1zzp7sS6mPIgo",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/get/69ff06678ccd0d37ff25085d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "get",
+            "69ff06678ccd0d37ff25085d"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5000/api/update/69ff06678ccd0d37ff25085d",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1NWQ3YjZhOWY1OTM5NThmYzYxNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODM0MTM3NCwiZXhwIjoxNzc4OTQ2MTc0fQ.0YnI8NxCLLnnvJQLrVA5zyhDb03Ytk1zzp7sS6mPIgo",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"update user\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/update/69ff06678ccd0d37ff25085d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "update",
+            "69ff06678ccd0d37ff25085d"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5000/api/delet/69ff06678ccd0d37ff25085d",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1NWQ3YjZhOWY1OTM5NThmYzYxNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODM0MTM3NCwiZXhwIjoxNzc4OTQ2MTc0fQ.0YnI8NxCLLnnvJQLrVA5zyhDb03Ytk1zzp7sS6mPIgo",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/delet/69ff06678ccd0d37ff25085d?=",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "delet",
+            "69ff06678ccd0d37ff25085d"
+          ],
+          "query": [
+            {
+              "key": null,
+              "value": "",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5000/api/task/create",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1NWQ3YjZhOWY1OTM5NThmYzYxNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODM0MjgwNywiZXhwIjoxNzc4OTQ3NjA3fQ.J2gJ9fjIuFcObbNv5B6f7uAPIy49SeUMn5toBOy72VQ",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Complete Backend API\",\r\n  \"description\": \"Finish Express + MongoDB project\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/task/create",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "task",
+            "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5000/api/task/get",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1NWQ3YjZhOWY1OTM5NThmYzYxNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODM0MjgwNywiZXhwIjoxNzc4OTQ3NjA3fQ.J2gJ9fjIuFcObbNv5B6f7uAPIy49SeUMn5toBOy72VQ",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/task/get",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "task",
+            "get"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5000/api/task/update/69ff59cbb6a9f593958fc616",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1NWQ3YjZhOWY1OTM5NThmYzYxNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODM0MTM3NCwiZXhwIjoxNzc4OTQ2MTc0fQ.0YnI8NxCLLnnvJQLrVA5zyhDb03Ytk1zzp7sS6mPIgo",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\":\"updated task\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/task/update/69ff59cbb6a9f593958fc616",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "task",
+            "update",
+            "69ff59cbb6a9f593958fc616"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5000/api/task/delet/69ff59cbb6a9f593958fc616",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1NWQ3YjZhOWY1OTM5NThmYzYxNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODM0MTM3NCwiZXhwIjoxNzc4OTQ2MTc0fQ.0YnI8NxCLLnnvJQLrVA5zyhDb03Ytk1zzp7sS6mPIgo",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/api/task/delet/69ff59cbb6a9f593958fc616",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "task",
+            "delet",
+            "69ff59cbb6a9f593958fc616"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
