@@ -5,16 +5,32 @@ class TaskController {
     try {
       const { title, description, assignedTo } = req.body;
 
+      if (!title || !description) {
+        return res.status(400).json({
+          success: false,
+          message: "Title and description are required",
+        });
+      }
+
       const task = await Task.create({
         title,
         description,
         assignedTo,
         assignedBy: req.user.id,
-      });
 
-      res.status(201).json(task);
+        file: req.file ? req.file.path : "",
+      });
+console.log("BODY:", req.body);
+console.log("FILE:", req.file);
+      return res.status(201).json({
+        success: true,
+        message: "Task created successfully",
+        task,
+      });
     } catch (error) {
-      res.status(500).json({
+      console.log("CREATE TASK ERROR =>", error);
+      return res.status(500).json({
+        success: false,
         message: error.message,
       });
     }
@@ -24,21 +40,15 @@ class TaskController {
     try {
       let tasks;
 
-     
       if (req.user.role === "admin") {
         tasks = await Task.find()
           .populate("assignedTo", "name email")
           .populate("assignedBy", "name");
-      }
-
-      
-      else if (req.user.role === "manager") {
+      } else if (req.user.role === "manager") {
         tasks = await Task.find({
           assignedBy: req.user.id,
         });
-      }
-
-      else {
+      } else {
         tasks = await Task.find({
           assignedTo: req.user.id,
         });
@@ -53,39 +63,43 @@ class TaskController {
   }
 
   async updateTask(req, res) {
-   try {
-  const { status } = req.body;
+    try {
+      const { title, description, status, assignedTo } = req.body;
 
-  console.log("STATUS FROM BODY:", status);
+      const task = await Task.findById(req.params.id);
 
-  const task = await Task.findById(req.params.id);
+      if (!task) {
+        return res.status(404).json({
+          success: false,
+          message: "Task not found",
+        });
+      }
 
-  console.log("TASK FOUND:", task);
+      task.title = title || task.title;
+      task.description = description || task.description;
+      task.status = status || task.status;
+      task.assignedTo = assignedTo || task.assignedTo;
 
-  if (!task) {
-    return res.status(404).json({
-      message: "Task not found",
-    });
+      if (req.file) {
+        task.file = req.file.path;
+      }
+
+      const updatedTask = await task.save();
+
+      res.status(200).json({
+        success: true,
+        message: "Task updated successfully",
+        task: updatedTask,
+      });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+      });
+    }
   }
 
-  task.status = status;
-
-  const updatedTask = await task.save();
-
-  res.json({
-    message: "Task updated successfully",
-    task: updatedTask
-  });
-
-} catch (error) {
-  res.status(500).json({
-    message: error.message,
-  });
-}
-  }
-
-
-    async updateTaskStatus(req, res) {
+  async updateTaskStatus(req, res) {
     try {
       const { status } = req.body;
 
@@ -112,7 +126,7 @@ class TaskController {
     }
   }
 
-   async assignTask(req, res) {
+  async assignTask(req, res) {
     try {
       const { assignedTo } = req.body;
 
@@ -147,8 +161,8 @@ class TaskController {
       });
     } catch (error) {
       res.status(500).json({
-        message: error.message
-      })
+        message: error.message,
+      });
     }
   }
 }

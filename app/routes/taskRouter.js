@@ -4,11 +4,12 @@ const protect = require("../middlewire/authMiddlewire");
 
 const authorizeRoles = require("../middlewire/roleMiddlewire");
 const taskController = require("../controller/taskController");
+const upload = require("../middlewire/upload");
 const router = express.Router();
 
 router.post(
   "/task/create",
-  protect,
+  protect,upload.single('file'),
   authorizeRoles("admin", "manager"),
   taskController.createTask
 );
@@ -35,7 +36,7 @@ router.patch(
 );
 router.put(
   "/task/update/:id",
-  protect,
+  protect,upload.single('file'),
   authorizeRoles("admin", "manager"),
   taskController.updateTask
 );

@@ -27,6 +27,8 @@ app.use('/uploads',express.static('uploads'));
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
+
+
 //define routes
 
 const authRouter = require('./app/routes/authRouter')
@@ -39,6 +41,14 @@ app.use('/api',userSubRouter)
 const taskRouter = require('./app/routes/taskRouter')
 app.use('/api',taskRouter)
 
+app.use((err, req, res, next) => {
+  console.log("GLOBAL ERROR =>", err)
+
+  res.status(500).json({
+    success: false,
+    message: err.message || "Server Error",
+  })
+})
 
 const PORT=5000;
 
