@@ -70,6 +70,40 @@
       "response": []
     },
     {
+      "name": "http://localhost:5000/logout",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1NWQ3YjZhOWY1OTM5NThmYzYxNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODM4MTM1MiwiZXhwIjoxNzc4OTg2MTUyfQ.MxJJsFyMmxTOLzi0_hP1cWFRtdXkipvBWBHWHm-23rc",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/logout",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "logout"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
       "name": "http://localhost:5000/api/get",
       "request": {
         "auth": {
@@ -238,6 +272,80 @@
             "api",
             "task",
             "create"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5000/api/task/status/69ff5bd7b6a9f593958fc617",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1NWQ3YjZhOWY1OTM5NThmYzYxNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODM4MTM1MiwiZXhwIjoxNzc4OTg2MTUyfQ.MxJJsFyMmxTOLzi0_hP1cWFRtdXkipvBWBHWHm-23rc",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"assignedTo\": \"69ff5bd7b6a9f593958fc617\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/task/assign/69ff5bd7b6a9f593958fc617",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "task",
+            "assign",
+            "69ff5bd7b6a9f593958fc617"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:5000/api/task/status/69ff5bd7b6a9f593958fc617",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "authorization",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmY1NWQ3YjZhOWY1OTM5NThmYzYxNSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODM4MTM1MiwiZXhwIjoxNzc4OTg2MTUyfQ.MxJJsFyMmxTOLzi0_hP1cWFRtdXkipvBWBHWHm-23rc",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"status\": \"Completed\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/task/status/69ff5bd7b6a9f593958fc617",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "task",
+            "status",
+            "69ff5bd7b6a9f593958fc617"
           ]
         }
       },
